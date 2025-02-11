@@ -1,10 +1,12 @@
 import ListItem from "./ListItem";
 
-function List({ items }) {
+function List({ todos, setTodos }) {
+  if (!todos.length) return;
+
   return (
     <ul className="space-y-4">
-      {items.map((item) => (
-        <ListItem key={item.name} item={item} />
+      {todos.map((item) => (
+        <ListItem key={item.task} item={item} setTodos={setTodos} />
       ))}
     </ul>
   );
